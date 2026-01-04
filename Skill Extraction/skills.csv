@@ -1,5 +1,6 @@
-skill,category
-Python,Technical
-SQL,Technical
-Communication,Soft
-Git,Technical
+skill,type
+Python,technical
+Java,technical
+SQL,technical
+Communication,soft
+Teamwork,soft
