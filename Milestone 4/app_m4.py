@@ -3,9 +3,8 @@ import pandas as pd
 import plotly.graph_objects as go
 from fpdf import FPDF
 
-# --------------------------------------------------
 # DATA (FROM MILESTONE 3 OUTPUT)
-# --------------------------------------------------
+
 overall_match = 50
 matched_skills = 2
 missing_skills = 2
@@ -41,14 +40,11 @@ radar_categories = ["Technical", "Soft Skills", "Experience", "Education", "Cert
 radar_job_seeker = [70, 65, 60, 75, 50]
 radar_job_requirement = [85, 70, 75, 80, 65]
 
-# --------------------------------------------------
-# PAGE CONFIG
-# --------------------------------------------------
+
+
 st.set_page_config(page_title="Skill Gap Analysis", layout="wide")
 
-# --------------------------------------------------
-# HEADER (BLUE)
-# --------------------------------------------------
+
 st.markdown("""
 <div style="background:#1e3a8a;padding:18px;border-radius:8px;color:white;">
     <h3 style="margin:0;">Milestone 4: Dashboard & Report Export Module</h3>
@@ -58,9 +54,7 @@ st.markdown("""
 
 st.markdown("## 📊 Skill Gap Analysis Dashboard")
 
-# --------------------------------------------------
-# TOP METRICS
-# --------------------------------------------------
+
 c1, c2, c3 = st.columns(3)
 
 c1.markdown(f"""
@@ -84,12 +78,9 @@ c3.markdown(f"""
 </div>
 """, unsafe_allow_html=True)
 
-# --------------------------------------------------
-# MAIN LAYOUT
-# --------------------------------------------------
 left, right = st.columns([3, 1])
 
-# ================= LEFT =================
+
 with left:
     st.markdown("### 📈 Skill Match Overview")
 
@@ -124,9 +115,7 @@ with left:
         st.markdown(f"**{skill}**")
         st.progress(value / 100)
 
-    # -------------------------------
-    # KEY SKILLS
-    # -------------------------------
+    
     st.markdown("### 🎯 Key Skill Match Percentages")
     k1, k2, k3, k4 = st.columns(4)
 
@@ -151,7 +140,7 @@ with left:
     skill_circle(k3, "SQL", 40)
     skill_circle(k4, "AWS", 35)
 
-# ================= RIGHT =================
+
 with right:
     st.markdown("### 👤 Role View")
 
@@ -185,9 +174,7 @@ with right:
     for title, desc in upskill_recommendations:
         st.warning(f"**{title}**  \n{desc}")
 
-# --------------------------------------------------
-# PDF & CSV
-# --------------------------------------------------
+
 def generate_pdf():
     pdf = FPDF()
     pdf.add_page()
