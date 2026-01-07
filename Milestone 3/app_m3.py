@@ -3,17 +3,15 @@ import plotly.graph_objects as go
 import os
 import re
 
-# ---------------- PAGE CONFIG ----------------
 st.set_page_config(layout="wide")
 
-# ---------------- FILE PATHS ----------------
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_DIR = os.path.join(BASE_DIR, "data")
 
 RESUME_PATH = os.path.join(DATA_DIR, "resume2.txt")
 JD_PATH = os.path.join(DATA_DIR, "job_description2.txt")
 
-# ---------------- READ FILES ----------------
+
 def read_file(path):
     try:
         with open(path, "r", encoding="utf-8") as f:
@@ -28,7 +26,7 @@ if not resume_text or not jd_text:
     st.error("resume2.txt or job_description2.txt not found in /data folder")
     st.stop()
 
-# ---------------- SKILL LIST ----------------
+
 SKILLS = [
     "java", "spring boot", "mysql", "sql", "rest",
     "python", "react", "node", "mongodb",
@@ -49,11 +47,11 @@ matched = resume_skills & jd_skills
 missing = jd_skills - resume_skills
 partial = resume_skills - jd_skills
 
-# ---------------- METRICS ----------------
+
 total_required = len(jd_skills)
 overall_match = int((len(matched) / total_required) * 100) if total_required else 0
 
-# ---------------- HEADER ----------------
+
 st.markdown(
     """
     <div style="background-color:#5932EA;padding:16px;border-radius:6px">
@@ -68,10 +66,10 @@ st.markdown(
 
 st.markdown("## Skill Gap Analysis Interface")
 
-# ---------------- LAYOUT ----------------
+
 left, right = st.columns([3, 2])
 
-# ================= SIMILARITY MATRIX =================
+
 with left:
     st.markdown("### Similarity Matrix")
 
@@ -139,7 +137,6 @@ with left:
     for skill in missing:
         st.markdown(f" **{skill.title()}** — High")
 
-# ================= SKILL MATCH OVERVIEW =================
 with right:
     st.markdown("### Skill Match Overview")
 
