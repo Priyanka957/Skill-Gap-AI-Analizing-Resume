@@ -3,7 +3,6 @@ import pandas as pd
 import plotly.graph_objects as go
 from fpdf import FPDF
 
-
 # DATA (FROM MILESTONE 3 OUTPUT)
 
 overall_match = 50
@@ -44,7 +43,6 @@ radar_job_requirement = [85, 70, 75, 80, 65]
 
 st.set_page_config(page_title="Skill Gap Analysis", layout="wide")
 
-
 st.markdown("""
 <div style="background:#1e3a8a;padding:18px;border-radius:8px;color:white;">
     <h3 style="margin:0;">Milestone 4: Dashboard & Report Export Module</h3>
@@ -53,7 +51,6 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 st.markdown("## 📊 Skill Gap Analysis Dashboard")
-
 
 c1, c2, c3 = st.columns(3)
 
