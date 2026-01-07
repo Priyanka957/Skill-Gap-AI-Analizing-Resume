@@ -1,10 +1,10 @@
 import streamlit as st
 import plotly.graph_objects as go
 
-# ---------------- PAGE CONFIG ----------------
+
 st.set_page_config(page_title="Skill Extraction Dashboard", layout="wide")
 
-# ---------------- CUSTOM CSS ----------------
+
 st.markdown("""
 <style>
     /* Styling for the skill pills */
@@ -33,7 +33,7 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# ---------------- HEADER ----------------
+
 st.markdown("""
 <div class="main-header">
     <h3 style="margin:0;">Milestone 2: Skill Extraction using NLP Module (Weeks 3–4)</h3>
@@ -41,13 +41,13 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-# ---------------- FILE UPLOAD ----------------
+
 u1, u2 = st.columns(2)
 resume_file = u1.file_uploader("Upload Resume (.txt)", ["txt"])
 jd_file = u2.file_uploader("Upload Job Description (.txt)", ["txt"])
 
 if resume_file and jd_file:
-    # Example Data matching your screenshots
+   
     res_tech_skills = ["python", "sql"]
     res_soft_skills = ["Communication"]
     jd_tech_skills = ["python", "sql", "aws"]
@@ -56,12 +56,12 @@ if resume_file and jd_file:
 
     st.markdown("### Skill Extraction Interface")
     
-    # Dashboard Layout with two equal columns
+   
     left_col, right_col = st.columns(2)
 
-    # ================= LEFT BOX: RESUME SKILLS =================
+    
     with left_col:
-        # st.container(border=True) ensures everything stays INSIDE the white box
+        
         with st.container(border=True):
             st.subheader("Resume Skills")
             tab1, tab2 = st.tabs(["Resume", "Job Description"])
@@ -87,12 +87,12 @@ if resume_file and jd_file:
                 </div>
             """, unsafe_allow_html=True)
 
-    # ================= RIGHT BOX: SKILL DISTRIBUTION =================
+    
     with right_col:
         with st.container(border=True):
             st.subheader("Skill Distribution")
             
-            # Pie Chart logic
+            
             fig = go.Figure(go.Pie(
                 labels=["Technical Skills", "Soft Skills"],
                 values=[len(res_tech_skills), len(res_soft_skills)],
@@ -107,7 +107,7 @@ if resume_file and jd_file:
             )
             st.plotly_chart(fig, use_container_width=True)
 
-            # Metric Grid matching image_3adc09
+           
             m1, m2 = st.columns(2)
             m1.metric("Technical Skills", len(res_tech_skills))
             m2.metric("Soft Skills", len(res_soft_skills))
