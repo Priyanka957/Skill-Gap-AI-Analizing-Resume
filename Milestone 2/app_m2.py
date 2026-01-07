@@ -1,10 +1,10 @@
 import streamlit as st
 import plotly.graph_objects as go
 
-# ---------------- PAGE CONFIG ----------------
+
 st.set_page_config(page_title="Skill Extraction Dashboard", layout="wide")
 
-# ---------------- CUSTOM CSS ----------------
+
 st.markdown("""
 <style>
     /* Styling for the skill pills */
@@ -33,7 +33,7 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# ---------------- HEADER ----------------
+
 st.markdown("""
 <div class="main-header">
     <h3 style="margin:0;">Milestone 2: Skill Extraction using NLP Module (Weeks 3–4)</h3>
@@ -41,7 +41,7 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-# ---------------- FILE UPLOAD ----------------
+
 u1, u2 = st.columns(2)
 resume_file = u1.file_uploader("Upload Resume (.txt)", ["txt"])
 jd_file = u2.file_uploader("Upload Job Description (.txt)", ["txt"])
@@ -59,7 +59,7 @@ if resume_file and jd_file:
     # Dashboard Layout with two equal columns
     left_col, right_col = st.columns(2)
 
-    # ================= LEFT BOX: RESUME SKILLS =================
+    
     with left_col:
         # st.container(border=True) ensures everything stays INSIDE the white box
         with st.container(border=True):
@@ -87,7 +87,6 @@ if resume_file and jd_file:
                 </div>
             """, unsafe_allow_html=True)
 
-    # ================= RIGHT BOX: SKILL DISTRIBUTION =================
     with right_col:
         with st.container(border=True):
             st.subheader("Skill Distribution")
