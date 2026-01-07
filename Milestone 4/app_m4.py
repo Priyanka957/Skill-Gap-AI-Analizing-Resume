@@ -106,9 +106,7 @@ with left:
 
     st.plotly_chart(fig, use_container_width=True)
 
-    # -------------------------------
-    # SKILL COMPARISON (EXISTS NOW)
-    # -------------------------------
+
     st.markdown("### ⚖️ Skill Comparison")
 
     for skill, value in skill_comparison.items():
