@@ -5,10 +5,10 @@ from fpdf import FPDF
 
 # DATA (FROM MILESTONE 3 OUTPUT)
 
-overall_match = 50
+overall_match = 25
 matched_skills = 1
 partial_matching_skills = 2
-missing_skills = 2
+missing_skills = 3
 
 skills_data = {
     "Skill": ["Python", "Machine Learning", "SQL", "AWS"],
