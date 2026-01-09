@@ -44,7 +44,7 @@ st.markdown("""
 
 st.markdown("## 📊 Skill Gap Analysis Dashboard")
 
-# ================= METRIC CARDS ================= #
+
 
 c1, c2, c3 = st.columns(3)
 
@@ -69,7 +69,7 @@ c3.markdown(f"""
 </div>
 """, unsafe_allow_html=True)
 
-# ========= PARTIAL MATCHING CARD ONLY ========= #
+
 
 st.markdown("<br>", unsafe_allow_html=True)
 c4, c5, c6 = st.columns(3)
@@ -83,7 +83,7 @@ c5.markdown(f"""
 
 left, right = st.columns([3, 1])
 
-# ================= LEFT SIDE ================= #
+
 
 with left:
     st.markdown("### 📈 Skill Match Overview")
@@ -116,7 +116,7 @@ with left:
         st.markdown(f"**{skill}**")
         st.progress(value / 100)
 
-    # ========= KEY SKILL MATCH ========= #
+   
 
     st.markdown("### 🎯 Key Skill Match Percentages")
     k1, k2, k3, k4 = st.columns(4)
@@ -142,7 +142,7 @@ with left:
     skill_circle(k3, "SQL", 40)
     skill_circle(k4, "AWS", 35)
 
-# ================= RIGHT SIDE ================= #
+
 
 with right:
     st.markdown("### 👤 Role View")
@@ -177,7 +177,7 @@ with right:
     for title, desc in upskill_recommendations:
         st.warning(f"**{title}**  \n{desc}")
 
-# ================= PDF ================= #
+
 
 def generate_pdf():
     pdf = FPDF()
