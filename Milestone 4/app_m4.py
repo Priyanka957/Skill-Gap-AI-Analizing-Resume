@@ -6,7 +6,8 @@ from fpdf import FPDF
 # DATA (FROM MILESTONE 3 OUTPUT)
 
 overall_match = 50
-matched_skills = 2
+matched_skills = 1
+partial_matching_skills = 2
 missing_skills = 2
 
 skills_data = {
@@ -15,13 +16,6 @@ skills_data = {
     "Job Requirement %": [95, 85, 80, 75]
 }
 df_skills = pd.DataFrame(skills_data)
-
-key_skills = {
-    "Python": 90,
-    "Machine Learning": 75,
-    "SQL": 40,
-    "AWS": 35
-}
 
 skill_comparison = {
     "Python": 90,
@@ -36,10 +30,8 @@ upskill_recommendations = [
 ]
 
 radar_categories = ["Technical", "Soft Skills", "Experience", "Education", "Certifications"]
-
 radar_job_seeker = [70, 65, 60, 75, 50]
 radar_job_requirement = [85, 70, 75, 80, 65]
-
 
 st.set_page_config(page_title="Skill Gap Analysis", layout="wide")
 
@@ -51,6 +43,8 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 st.markdown("## 📊 Skill Gap Analysis Dashboard")
+
+# ================= METRIC CARDS ================= #
 
 c1, c2, c3 = st.columns(3)
 
@@ -75,9 +69,21 @@ c3.markdown(f"""
 </div>
 """, unsafe_allow_html=True)
 
+# ========= PARTIAL MATCHING CARD ONLY ========= #
+
+st.markdown("<br>", unsafe_allow_html=True)
+c4, c5, c6 = st.columns(3)
+
+c5.markdown(f"""
+<div style="background:#fef9c3;padding:20px;border-radius:10px;text-align:center;">
+<h2 style="color:#a16207;margin:0;">{partial_matching_skills}</h2>
+<p>Partial Matching Skills</p>
+</div>
+""", unsafe_allow_html=True)
 
 left, right = st.columns([3, 1])
 
+# ================= LEFT SIDE ================= #
 
 with left:
     st.markdown("### 📈 Skill Match Overview")
@@ -104,14 +110,14 @@ with left:
 
     st.plotly_chart(fig, use_container_width=True)
 
-
     st.markdown("### ⚖️ Skill Comparison")
 
     for skill, value in skill_comparison.items():
         st.markdown(f"**{skill}**")
         st.progress(value / 100)
 
-    
+    # ========= KEY SKILL MATCH ========= #
+
     st.markdown("### 🎯 Key Skill Match Percentages")
     k1, k2, k3, k4 = st.columns(4)
 
@@ -136,11 +142,12 @@ with left:
     skill_circle(k3, "SQL", 40)
     skill_circle(k4, "AWS", 35)
 
+# ================= RIGHT SIDE ================= #
 
 with right:
     st.markdown("### 👤 Role View")
 
-    role = st.radio("", ["Job Seeker", "Recruiter"], horizontal=True)
+    st.radio("", ["Job Seeker", "Recruiter"], horizontal=True)
 
     radar = go.Figure()
     radar.add_trace(go.Scatterpolar(
@@ -170,6 +177,7 @@ with right:
     for title, desc in upskill_recommendations:
         st.warning(f"**{title}**  \n{desc}")
 
+# ================= PDF ================= #
 
 def generate_pdf():
     pdf = FPDF()
@@ -181,6 +189,7 @@ def generate_pdf():
     pdf.set_font("Arial", "", 12)
     pdf.cell(0, 8, f"Overall Match: {overall_match}%", ln=True)
     pdf.cell(0, 8, f"Matched Skills: {matched_skills}", ln=True)
+    pdf.cell(0, 8, f"Partial Matching Skills: {partial_matching_skills}", ln=True)
     pdf.cell(0, 8, f"Missing Skills: {missing_skills}", ln=True)
     pdf.ln(5)
 
