@@ -33,8 +33,4 @@ Milestone_2/
 │
 ├── app.py                   # Main Streamlit app
 ├── README.md                # Project description
-├── screenshot_milestone2.jpg
-├── data.py                  # Contains the contents of resume.txt and jobdescription.txt
-├── skill_logic.py           # Skill extraction / NLP logic
-├── file_parser.py           # Parsing input text / files
-└── cleaner.py               # Text cleaning / preprocessing
+├── image.png                # output
