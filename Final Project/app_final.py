@@ -2033,8 +2033,8 @@ if skills_display:
         else:
             return 'background-color: #f8d7da; color: #721c24;'
     
-    styled_df = df_skills.style.applymap(color_rows, subset=['Level'])
-    st.dataframe(styled_df, use_container_width=True, height=400)
+    styled_df = df_skills.style.map(color_rows, subset=['Level'])
+    st.dataframe(df_skills, use_container_width=True, height=400)
 
 # Create the horizontal bar chart
 
