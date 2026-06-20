@@ -66,10 +66,10 @@ AI-Resume-Analyzer/
 
 ---
 
-## ⚙️ Setup Instructions
+⚙️ Setup Instructions
 
-### 1. Clone Repository
-```bash
+1. Clone Repository
+
 git clone https://github.com/Priyanka957/AI-Resume-Analyzer.git
 cd AI-Resume-Analyzer
 
@@ -85,6 +85,7 @@ streamlit run "Final Project/app_final.py"
 👉 https://skill-gap-ai-analyzer.streamlit.app/
 
 📊 How It Works
+
 Upload Resume (PDF/DOCX)
 Enter Job Description
 Extract skills using NLP
